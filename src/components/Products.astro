@@ -1,0 +1,24 @@
+---
+const products = [
+  { ico: "焼", h: "Khoai mật nướng", p: "Nướng chậm 3 giờ, mật nghịt tự nhiên.", price: "59.000đ" },
+  { ico: "乾", h: "Khoai sấy mộc", p: "Lát mỏng giòn, giữ nguyên vị đất.", price: "45.000đ" },
+  { ico: "粉", h: "Bột khoai nguyên chất", p: "Pha sữa, làm bánh, thêm vào cháo.", price: "72.000đ" },
+];
+---
+<section id="products" class="mx-auto max-w-page px-8 py-24">
+  <div class="text-center mb-14">
+    <div class="font-serif text-[13px] tracking-[0.3em] uppercase text-accent">商品</div>
+    <h2 class="font-serif font-semibold text-[clamp(28px,4vw,42px)] mt-3">Dòng sản phẩm</h2>
+    <div class="w-[46px] h-[3px] bg-accent mx-auto mt-4"></div>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    {products.map((p) => (
+      <div class="text-center p-9 border border-ink/10 rounded bg-white/35">
+        <div class="w-16 h-16 mx-auto mb-5 rounded-full grid place-items-center font-serif text-2xl text-accent" style="background:color-mix(in srgb, var(--accent) 12%, transparent)">{p.ico}</div>
+        <h3 class="font-serif font-semibold text-lg">{p.h}</h3>
+        <p class="text-sm text-ink-soft mt-2 mb-4">{p.p}</p>
+        <div class="font-serif text-accent text-[17px]">{p.price}</div>
+      </div>
+    ))}
+  </div>
+</section>

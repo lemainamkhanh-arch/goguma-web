@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables mirror src/design/tokens.json (single source of truth).
+   Used for effects that need raw color values, e.g. the seigaiha pattern. */
+:root {
+  --paper: #F2ECE0;
+  --ink: #2B2B28;
+  --ink-soft: #6B645B;
+  --accent: #9C3B2E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* subtle washi paper grain */
+body {
+  background-image: radial-gradient(rgba(43, 43, 40, 0.018) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* seigaiha (青海波) wave band — color driven by --accent token */
+.seigaiha {
+  height: 90px;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 38%, var(--accent) 39% 43%, transparent 44%),
+    radial-gradient(circle at 50% 100%, transparent 26%, var(--accent) 27% 31%, transparent 32%);
+  background-size: 60px 60px;
+  opacity: 0.5;
+}
