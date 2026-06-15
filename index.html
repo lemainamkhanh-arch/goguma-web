@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOGUMA — Vị ngọt mộc mạc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;900&family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2ECE0;
+  --ink:#2B2B28;
+  --ink-soft:#6B645B;
+  --accent:#9C3B2E;
+  --maxw:1180px;
+  --serif:"Noto Serif JP","Noto Serif KR",Georgia,serif;
+  --serif-kr:"Noto Serif KR",serif;
+  --sans:"Noto Sans JP",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(43,43,40,.018) 1px, transparent 1px);
+  background-size:4px 4px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+a{color:inherit;text-decoration:none}
+
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);
+  background:color-mix(in srgb,var(--paper) 82%, transparent);
+  border-bottom:1px solid rgba(43,43,40,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:.16em}
+.brand b{color:var(--accent);font-weight:600}
+.menu{display:flex;gap:34px;font-size:14px;letter-spacing:.04em;color:var(--ink-soft)}
+.menu a:hover{color:var(--accent)}
+.seal{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;
+  background:var(--accent);color:var(--paper);font-family:var(--serif);font-size:16px;border-radius:3px}
+
+.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;
+  min-height:78vh;padding:40px 0}
+.eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(56px,8vw,116px);
+  line-height:.96;letter-spacing:.02em}
+.hero .kr{font-family:var(--serif-kr);font-weight:600;font-size:clamp(30px,4vw,52px);
+  color:var(--accent);margin-top:10px}
+.hero .tag{font-size:17px;color:var(--ink-soft);margin:26px 0 36px;max-width:30ch}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{font-size:14px;letter-spacing:.05em;padding:14px 30px;border-radius:2px;transition:.2s}
+.btn-primary{background:var(--accent);color:var(--paper)}
+.btn-primary:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{border:1px solid rgba(43,43,40,.28);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-art{width:100%;border-radius:4px;display:block;
+  filter:saturate(.96)}
+
+section{padding:96px 0}
+.shead{text-align:center;margin-bottom:58px}
+.shead .k{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase}
+.shead h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,42px);margin-top:12px}
+.divider{width:46px;height:3px;background:var(--accent);margin:18px auto 0}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{background:rgba(255,255,255,.4);border:1px solid rgba(43,43,40,.08);
+  padding:42px 32px;border-radius:4px;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(43,43,40,.07)}
+.card .num{font-family:var(--serif);font-size:30px;color:var(--accent);opacity:.5}
+.card h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:14px 0 10px}
+.card p{font-size:15px;color:var(--ink-soft)}
+
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.story img{width:100%;border-radius:4px}
+.story h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,38px);line-height:1.25}
+.story p{font-size:16px;color:var(--ink-soft);margin-top:20px}
+.story .sig{font-family:var(--serif-kr);color:var(--accent);margin-top:24px;font-size:18px}
+
+.prod{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.pcard{text-align:center;padding:36px 24px;border:1px solid rgba(43,43,40,.1);border-radius:4px;background:rgba(255,255,255,.35)}
+.pcard .ico{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;
+  background:color-mix(in srgb,var(--accent) 12%,transparent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:28px;color:var(--accent)}
+.pcard h3{font-family:var(--serif);font-weight:600;font-size:19px}
+.pcard p{font-size:14px;color:var(--ink-soft);margin:8px 0 16px}
+.price{font-family:var(--serif);color:var(--accent);font-size:17px}
+
+.band{background:var(--ink);color:var(--paper);text-align:center;border-radius:6px;padding:72px 32px;margin:0 0}
+.band h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4vw,40px)}
+.band p{color:rgba(242,236,224,.7);margin:16px auto 32px;max-width:46ch}
+.band .btn-primary{background:var(--accent)}
+
+footer{margin-top:0;color:var(--ink-soft);font-size:13px}
+.seigaiha{height:90px;
+  background:
+   radial-gradient(circle at 50% 100%, transparent 38%, var(--accent) 39% 43%, transparent 44%) ,
+   radial-gradient(circle at 50% 100%, transparent 26%, var(--accent) 27% 31%, transparent 32%);
+  background-size:60px 60px;background-position:0 0;opacity:.5}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding:34px 0;flex-wrap:wrap;gap:12px}
+.fbot .brand{font-size:18px}
+
+@media(max-width:860px){
+  .hero,.story,.grid3,.prod{grid-template-columns:1fr}
+  .hero{text-align:left;padding-top:18px}
+  .menu{display:none}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <div class="brand">GOGUMA <b>· 고구마</b></div>
+  <nav class="menu">
+    <a href="#products">Sản phẩm</a>
+    <a href="#why">Vì sao</a>
+    <a href="#story">Câu chuyện</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
+  <span class="seal">甘</span>
+</div></header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Snack khoai lang thủ công</div>
+      <h1>GOGUMA</h1>
+      <div class="kr">고구마</div>
+      <p class="tag"><br>Vị ngọt mộc mạc, một khoảng lặng trong từng miếng.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#products">Khám phá sản phẩm</a>
+        <a class="btn btn-ghost" href="#story">Câu chuyện của chúng tôi</a>
+      </div>
+    </div>
+    <img class="hero-art" src="img/img1.jpg" alt="Goguma ink art">
+  </section>
+</div>
+
+<div class="wrap" id="why">
+  <section>
+    <div class="shead">
+      <div class="k">余白 · 素朴</div>
+      <h2>Vì sao là Goguma</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="num">一</div><h3>Ngọt tự nhiên</h3><p>Chỉ vị ngọt tự củ khoai nướng chậm. Không đường tinh luyện, không phụ gia.</p></div>
+      <div class="card"><div class="num">二</div><h3>Mộc mạc, thủ công</h3><p>Làm theo mẻ đông á: ít bước, tôn nguyên liệu, giữ trọn hương đất.</p></div>
+      <div class="card"><div class="num">三</div><h3>Không phẩm màu</h3><p>Màu vàng cam là của chính củ khoai — không nhuộm, không tạo màu.</p></div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap" id="story">
+  <section class="story">
+    <img src="img/img2.jpg" alt="Người nông dân">
+    <div>
+      <h2>Từ luống đất đến túi khoai</h2>
+      <p>Mỗi củ khoai được chọn tay từ những luống đất pha cát. Người nông dân góp nắng, góp sương vào từng rổ — rồi chúng tôi chỉ việc giữ cho vị ấy nguyên vẹn.</p>
+      <p>Không vội vã, không cắt góc. Đó là cách Goguma tôn trọng cả người trồng lẫn người ăn.</p>
+      <div class="sig">— ものがたり, từ tâm</div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap" id="products">
+  <section>
+    <div class="shead">
+      <div class="k">商品</div>
+      <h2>Dòng sản phẩm</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="prod">
+      <div class="pcard"><div class="ico">焼</div><h3>Khoai mật nướng</h3><p>Nướng chậm 3 giờ, mật nghịt tự nhiên.</p><div class="price">59.000đ</div></div>
+      <div class="pcard"><div class="ico">乾</div><h3>Khoai sấy mộc</h3><p>Lát mỏng giòn, giữ nguyên vị đất.</p><div class="price">45.000đ</div></div>
+      <div class="pcard"><div class="ico">粉</div><h3>Bột khoai nguyên chất</h3><p>Pha sữa, làm bánh, thêm vào cháo.</p><div class="price">72.000đ</div></div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap" id="contact">
+  <section style="padding-top:0">
+    <div class="band">
+      <h2>Nếm thử một khoảng lặng</h2>
+      <p>Đặt hộp Goguma đầu tiên — giao tận nơi, giữ trọn vị mộc.</p>
+      <a class="btn btn-primary" href="#">Đặt hàng ngay</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="seigaiha"></div>
+  <div class="wrap fbot">
+    <div class="brand">GOGUMA <b style="color:var(--accent)">· 고구마</b></div>
+    <div>© 2026 Goguma · Vị ngọt mộc mạc · Thủ công đông á</div>
+  </div>
+</footer>
+
+</body>
+</html>
